@@ -1,0 +1,32 @@
+@if (mostrar) {
+    <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+
+        <label for="idFruta">ID Fruta </label>
+        <input formControlName="idFruta" />
+        @if (productoForm.get('idFruta')?.invalid 
+        && productoForm.get('idFruta')?.touched) { <p>obligatorio</p> }
+        <br>
+
+        <label for="nombreFruta">nombre Fruta </label>
+        <input formControlName="nombreFruta" />
+        @if (productoForm.get('nombreFruta')?.invalid 
+        && productoForm.get('nombreFruta')?.touched) {<p> obligatorio</p>
+        }
+        <br>
+        
+        <label for="precioPorKilo">precio Por Kilo </label>
+        <input formControlName="precioPorKilo" />
+        @if (productoForm.get('precioPorKilo')?.invalid
+         && productoForm.get('precioPorKilo')?.touched) {<p> obligatorio</p>
+        }
+        <br>
+        
+        <label for="cantidadDisponible">cantidad Disponible </label>
+        <input formControlName="cantidadDisponible" />
+        @if (productoForm.get('cantidadDisponible')?.invalid 
+        && productoForm.get('cantidadDisponible')?.touched) {<p>obligatorio</p>
+        }
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+}

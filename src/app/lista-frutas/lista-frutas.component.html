@@ -1,0 +1,23 @@
+<h2>🍇         🥝     Lista de Frutas  🍋            🍐</h2>     
+@if (frutas.length > 0) {
+    <ul>
+        @for (fruta of frutas; track $index) {
+            <li>
+        
+                ID {{ fruta.idFruta }}   || 
+                NOMBRE {{ fruta.nombreFruta }}   || 
+                PRECIO KG {{ fruta.precioPorKilo }}  || 
+                KG DIPONIBLES {{ fruta.cantidadDisponible }} || 
+                <button (click)="editarProducto(fruta)">Modificar</button>
+                <button (click)="eliminarProducto(fruta.idFruta)">Eliminar</button>
+            </li>
+        }
+    </ul>
+} @else {
+    <p>Lista vacia</p>
+}
+@if (mostrar) {
+<app-alta-frutas [fruta]="productoSeleccionado" (formSubmitted)="actualizar()">
+</app-alta-frutas>
+}
+<button (click)="formu()">Agregar</button>
